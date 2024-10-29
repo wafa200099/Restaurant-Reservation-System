@@ -16,5 +16,9 @@
       </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\RestaurantReservation.Db\RestaurantReservation.Db.csproj" />
+    </ItemGroup>
+
 </Project>
 

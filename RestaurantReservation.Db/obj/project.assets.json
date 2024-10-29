@@ -779,20 +779,6 @@
             "rid": "win"
           }
         }
-      },
-      "RestaurantReservation/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "6.0.1",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.1"
-        },
-        "compile": {
-          "bin/placeholder/RestaurantReservation.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RestaurantReservation.dll": {}
-        }
       }
     }
   },
@@ -2012,11 +1998,6 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "RestaurantReservation/1.0.0": {
-      "type": "project",
-      "path": "../RestaurantReservation/RestaurantReservation.csproj",
-      "msbuildProject": "../RestaurantReservation/RestaurantReservation.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2024,8 +2005,7 @@
       "Microsoft.EntityFrameworkCore >= 6.0.1",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.1",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.1",
-      "RestaurantReservation >= 1.0.0"
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.1"
     ]
   },
   "packageFolders": {
@@ -2054,11 +2034,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\wafaalomour\\RiderProjects\\RestaurantReservation\\RestaurantReservation\\RestaurantReservation.csproj": {
-              "projectPath": "C:\\Users\\wafaalomour\\RiderProjects\\RestaurantReservation\\RestaurantReservation\\RestaurantReservation.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

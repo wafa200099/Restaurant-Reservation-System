@@ -19,8 +19,6 @@
       </PackageReference>
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\RestaurantReservation\RestaurantReservation.csproj" />
-    </ItemGroup>
+
 
 </Project>

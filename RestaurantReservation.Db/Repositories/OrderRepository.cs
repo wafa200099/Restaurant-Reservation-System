@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestaurantReservation.Db.Repositories
 {
@@ -48,7 +49,7 @@ namespace RestaurantReservation.Db.Repositories
                 foreach (var orderItem in orderItems)
                 {
                     var menuItem = _context.MenuItems.Find(orderItem.ItemId);
-                    Console.WriteLine($"   Menu Item: {menuItem.Name}, Quantity: {orderItem.Quantity}");
+                    Console.WriteLine($"Menu Item: {menuItem.Name}, Quantity: {orderItem.Quantity}");
                 }
             }
         }
@@ -67,7 +68,25 @@ namespace RestaurantReservation.Db.Repositories
                     orderedMenuItems.Add(menuItem);
                 }
             }
+
             return orderedMenuItems;
+        }
+
+        public async Task<decimal> CalculateAverageOrderAmountAsync(int employeeId)
+        {
+            // Get all orders associated with the specified employee
+            var orders = await _context.Orders
+                .Where(o => o.EmployeeId == employeeId) 
+                .ToListAsync();
+
+            if (orders.Count == 0)
+            {
+                return 0; 
+            }
+
+            decimal averageOrderAmount =
+                orders.Average(o => o.TotalAmount); 
+            return averageOrderAmount;
         }
     }
 }

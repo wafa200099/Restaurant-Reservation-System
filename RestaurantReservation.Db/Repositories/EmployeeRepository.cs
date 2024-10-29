@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestaurantReservation.Db.Repositories
 {
@@ -37,10 +38,15 @@ namespace RestaurantReservation.Db.Repositories
             }
         }
 
-        // List Managers
+        // List Managers method
         public List<Employee> ListManagers()
         {
             return _context.Employees.Where(e => e.Position == "Manager").ToList();
+        }  
+        
+        public async Task<List<EmployeeWithRestaurant>> GetEmployeesWithRestaurantAsync()
+        {
+            return await _context.EmployeeWithRestaurant.ToListAsync();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestaurantReservation.Db.Repositories
 {
@@ -41,6 +42,11 @@ namespace RestaurantReservation.Db.Repositories
         public List<Reservation> GetReservationsByCustomer(int customerId)
         {
             return _context.Reservations.Where(r => r.CustomerId == customerId).ToList();
+        } 
+        
+        public async Task<List<ReservationWithDetails>> GetReservationsWithDetailsAsync()
+        {
+            return await _context.ReservationWithDetails.ToListAsync();
         }
     }
 }
