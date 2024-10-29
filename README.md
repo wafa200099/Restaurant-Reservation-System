@@ -1,90 +1,41 @@
-Restaurant Reservation System
+# Restaurant Reservation System
+
 A .NET Core project designed to manage restaurant reservations, menu items, orders, and employees. This system is implemented using Entity Framework Core (EF Core) as the ORM, enabling CRUD operations, views, database functions, and stored procedures.
 
-Table of Contents
-Project Overview
-Features
-Setup and Installation
-Database Schema
-Project Structure
-Usage
-Contributing
-Project Overview
-The Restaurant Reservation System project is a console application developed in .NET Core 5.0+ using Entity Framework Core to interact with a SQL Server database. It follows an organized architecture with data models, repository classes, and asynchronous LINQ queries. The project is hosted on GitHub, with each phase committed following Git best practices.
+## Table of Contents
 
-Features
-CRUD Operations: Provides create, update, and delete methods for each entity.
-Repository Pattern: Each entity has a repository for separation of concerns.
-Asynchronous Operations: LINQ operations are asynchronous, improving performance.
-Database Views: Retrieves reservation and employee data from pre-defined views.
-Database Functions: Calculates total revenue by restaurant.
-Stored Procedures: Identifies customers with reservations over a specified party size.
-Data Seeding: Populates tables with initial records for testing.
-Setup and Installation
-Prerequisites
-.NET Core SDK 5.0 or later
-SQL Server Management Studio (SSMS) for creating the database
-Git for version control
-Step 1: Clone the Repository
-bash
-Copy code
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Setup and Installation](#setup-and-installation)
+- [Database Schema](#database-schema)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [Contributing](#contributing)
+
+## Project Overview
+
+The **Restaurant Reservation System** project is a console application developed in .NET Core 5.0+ using Entity Framework Core to interact with a SQL Server database. It follows an organized architecture with data models, repository classes, and asynchronous LINQ queries. The project is hosted on GitHub, with each phase committed following Git best practices.
+
+## Features
+
+1. **CRUD Operations**: Provides create, update, and delete methods for each entity.
+2. **Repository Pattern**: Each entity has a repository for separation of concerns.
+3. **Asynchronous Operations**: LINQ operations are asynchronous, improving performance.
+4. **Database Views**: Retrieves reservation and employee data from pre-defined views.
+5. **Database Functions**: Calculates total revenue by restaurant.
+6. **Stored Procedures**: Identifies customers with reservations over a specified party size.
+7. **Data Seeding**: Populates tables with initial records for testing.
+
+## Setup and Installation
+
+### Prerequisites
+
+- [.NET Core SDK 5.0 or later](https://dotnet.microsoft.com/download/dotnet/5.0)
+- [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) for creating the database
+- [Git](https://git-scm.com/) for version control
+
+### Step 1: Clone the Repository
+
+```bash
 git clone https://github.com/username/RestaurantReservation.git
 cd RestaurantReservation
-Step 2: Set Up the Database
-Open SQL Server Management Studio (SSMS).
-Create a database named RestaurantReservationCore.
-Update the connection string in RestaurantReservationDbContext to point to your SQL Server instance.
-Step 3: Build the Project
-bash
-dotnet build
-Step 4: Apply Migrations and Seed the Database
-bash
-dotnet ef database update
-This command will apply the migrations and seed the database with initial data.
-
-Database Schema
-The project follows a structured database schema with tables for Customers, Employees, Reservations, Orders, MenuItems, and Restaurants. The relationships between tables include foreign keys and navigation properties.
-
-<!-- Add an actual image link if available -->
-
-Project Structure
-The project is divided into two main parts:
-
-RestaurantReservation: The console application for testing the system.
-RestaurantReservation.Db: The library project containing EF Core models, migrations, and repositories.
-Directory structure:
-
-plaintext
-RestaurantReservation
-│
-├── RestaurantReservation                   # Console application
-│   └── Program.cs                          # Main application file
-│
-└── RestaurantReservation.Db                # Library project
-    ├── Data                                # Database context and configurations
-    │   └── RestaurantReservationDbContext.cs
-    ├── Models                              # Data models for each entity
-    ├── Migrations                          # EF Core migration files
-    └── Repositories                        # Repository classes for each entity
-Usage
-In the RestaurantReservation console application, various methods are demonstrated using sample data. Below are the main tasks included:
-
-CRUD Operations
-You can perform create, update, and delete operations on each entity, such as customers, reservations, and menu items.
-
-Custom Methods
-ListManagers: Retrieves all employees with the "Manager" position.
-GetReservationsByCustomer: Returns a list of reservations for a given customer.
-ListOrdersAndMenuItems: Lists orders and associated menu items by reservation.
-CalculateAverageOrderAmount: Calculates the average order amount for a given employee.
-Views and Functions
-Views:
-Lists reservations with customer and restaurant information.
-Lists employees with their associated restaurant details.
-Database Functions:
-Calculates total revenue generated by a specific restaurant.
-Stored Procedures
-The stored procedure allows finding customers with reservations exceeding a certain party size, using EF Core to execute this.
-
-Testing in Console
-In Program.cs, each method can be tested with sample data. Run the application using:
