@@ -128,6 +128,13 @@ namespace RestaurantReservation
                     Console.WriteLine(
                         $"{detail.FirstName} {detail.LastName} - {detail.RestaurantName} on {detail.RestaurantAddress}");
                 }
+
+
+  
+                // Call the function to get total revenue 
+                int restaurantId = 1; 
+                decimal totalRevenue = await context.GetTotalRevenueByRestaurantAsync(restaurantId);
+                Console.WriteLine($"Total Revenue for Restaurant ID {restaurantId}: {totalRevenue:C}");
             }
         }
     }

@@ -30,11 +30,23 @@ public class CustomerRepository
 
     public async Task DeleteAsync(int customerId)
     {
-        var customer = await _context.Customers.FindAsync(customerId);
+        // Load the customer along with their reservations
+        var customer = await _context.Customers
+            .Include(c => c.Reservations) // Include related Reservations
+            .FirstOrDefaultAsync(c => c.CustomerId == customerId);
+
         if (customer != null)
         {
+            // Delete related Reservations first
+            foreach (var reservation in customer.Reservations.ToList())
+            {
+                _context.Reservations.Remove(reservation);
+            }
+
+            // Now delete the Customer
             _context.Customers.Remove(customer);
             await _context.SaveChangesAsync();
         }
     }
+    
 }
