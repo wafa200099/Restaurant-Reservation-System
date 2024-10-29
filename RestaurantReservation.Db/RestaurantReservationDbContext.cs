@@ -317,7 +317,14 @@ namespace RestaurantReservation.Db
 
         // DEV Note  
         // This configuration treats these entities as read-only because they map to database views, not actual tables.EF
-        //  Core will prevent updates or inserts on these views, which is generally the intended behavior for reporting data
+        //  Core will prevent updates or inserts on these views, which is generally the intended behavior for reporting data  
+        
+        //  method to call the SQL function
+        public async Task<decimal> GetTotalRevenueByRestaurantAsync(int restaurantId)
+        {
+            var totalRevenue = await this.Database.ExecuteSqlRawAsync("SELECT dbo.CalculateTotalRevenue({0})", restaurantId);
+            return totalRevenue;
+        }
       
     }
 }
